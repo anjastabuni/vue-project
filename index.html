@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project-VueJs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:wght@300;500&family=Bad+Script&family=Candal&family=Libre+Franklin:wght@300;800&family=Lora&family=Montagu+Slab:wght@200;400&family=Montserrat+Subrayada&family=Montserrat:wght@200;500;700&family=Nunito+Sans:wght@300;500&family=Orbitron:wght@500&family=Patrick+Hand&family=Poppins:ital,wght@0,300;0,400;0,600;1,200;1,300&family=Quicksand:wght@300&family=Raleway:wght@300;400;500&family=Ysabeau:wght@200;300;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 5%;
+        font-family: "Asap", sans-serif;
+      }
+      h1 {
+        font-family: "Nunito sans", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>{{getname()}}</h1>
+        <p>{{message}}</p>
+      </header>
+      <footer>
+        <p>&copy; rebly 2024</p>
+      </footer>
+    </div>
+
+    <!-- link cdn vue js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          name: "i'am Rebly Tabuni",
+          message: "saya sedang belajar javascript framework",
+        },
+        methods: {
+          getname: function () {
+            return "Hello, " + this.name;
+          },
+          ubahNama: function (namaBaru) {
+            this.name = namaBaru;
+            return this.getname();
+          },
+        },
+        computed: {},
+      });
+    </script>
+  </body>
+</html>
+<!-- https://www.youtube.com/watch?v=_uebH_j2SAk&list=PL9At9z2rvOC-Z6Gt8uO1XMp4oyMlE3gml&index=13
+#13
+-->

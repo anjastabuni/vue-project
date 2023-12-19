@@ -18,13 +18,54 @@
       h1 {
         font-family: "Nunito sans", sans-serif;
       }
+      .active {
+        background: salmon;
+        border: 0;
+        padding: 5px;
+      }
     </style>
   </head>
   <body>
     <div id="app">
       <header>
-        <h1>{{getname()}}</h1>
+        <h1 v-text="name"></h1>
+        <p>
+          <input type="text" v-model="name" />
+        </p>
+
+        <h3>daftar kelas({{kelas.length}})</h3>
+        <ul v-if="kelas.length > 1">
+          <li v-for="(item, index) of kelas">{{index+1}} - {{item}}</li>
+        </ul>
+        <li v-else>kelas belum tersedia</li>
+
+        <h3>Perulangan</h3>
+        <ul>
+          <li v-for="x in 5">{{x}}</li>
+        </ul>
+        <h3>Mencari bilangan genap: {{numbers}}</h3>
+        <ul>
+          <li v-for="x in caribilangangenap(numbers)">{{x}}</li>
+        </ul>
+
+        <p>{{kelas}}</p>
+        <div>
+          <label><input type="checkbox" value="react" v-model="kelas" />Reactjs</label>
+          <label><input type="checkbox" value="vue" v-model="kelas" />Vuejs</label>
+          <label><input type="checkbox" value="angular" v-model="kelas" />Angular</label>
+        </div>
+        <p>
+          <span style="display: block">{{bilangan}}</span>
+          <button @click="handleclick">klik</button>
+        </p>
+        <p>Bilangan ini adalah bilangan {{infoBilangan}}</p>
         <p>{{message}}</p>
+
+        <img :src="gambar" width="500" alt="" />
+
+        <button v-bind:class="{active: menu === 'home' }" @click="menu = 'home'">Home</button>
+        <button v-bind:class="{active: menu === 'about' }" @click="menu = 'about'">About</button>
+        <button v-bind:class="{active: menu === 'blog'}" @click="menu = 'blog' ">Blog</button>
       </header>
       <footer>
         <p>&copy; rebly 2024</p>
@@ -33,27 +74,7 @@
 
     <!-- link cdn vue js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-    <script>
-      const vm = new Vue({
-        el: "#app",
-        data: {
-          name: "i'am Rebly Tabuni",
-          message: "saya sedang belajar javascript framework",
-        },
-        methods: {
-          getname: function () {
-            return "Hello, " + this.name;
-          },
-          ubahNama: function (namaBaru) {
-            this.name = namaBaru;
-            return this.getname();
-          },
-        },
-        computed: {},
-      });
-    </script>
+    <script src="app.js"></script>
   </body>
 </html>
-<!-- https://www.youtube.com/watch?v=_uebH_j2SAk&list=PL9At9z2rvOC-Z6Gt8uO1XMp4oyMlE3gml&index=13
-#13
--->
+<!-- https://www.youtube.com/watch?v=rL8GRQ3cWwk&list=PL9At9z2rvOC-Z6Gt8uO1XMp4oyMlE3gml&index=28 -->
